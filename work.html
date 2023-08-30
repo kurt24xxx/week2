@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html><head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React</title>
+  <style>
+    h1 {
+     color: red;
+      background-color:black;
+      float: center;
+      
+    } 
+  </style>
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body><div id="work"><h1>React</h1></div>
+<script type="text/babel">
+  "use strict"
+    function workfx(props) {
+      console.log(props);
+      return (
+        <div><ol>
+          {
+            props.list.map(
+              (item,index) => (
+                <li key={index}>
+                {item.shape}
+                  {item.color}
+                </li>
+                
+              )
+                
+              
+            )
+          }
+      )
+    }
+        </ol></div> ); }
+  $.getJSON(
+    "x" , function(jsonFromJquery) {
+
+      const myRoot = ReactDOM.createRoot( document.getElementById("work"));
+      myRoot.render(
+        <workfx list={jsonFromJquery} />
+      );
+    }
+  )
+    </script>
+</body>
+</html>
